@@ -91,7 +91,7 @@ function createLayer(filteredData) {
 }
 
 // Perform an api call to the data
-d3.json("https://raw.githubusercontent.com/luliang333/Web-Design-Challenge/main/restaurant.json").then(function(resData) {
+d3.json("api/v1.0/restaurant").then(function(resData) {
 
 	 //Loop through each key value pairs in the overlay Maps object
 	Object.entries(overlayMaps).forEach(([key, value]) => {
