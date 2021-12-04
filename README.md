@@ -10,4 +10,4 @@ From there, we converted the data frame to GeoJSON format which would accommodat
 
 We chose a mongoDB over SQL because it was more flexible in handling GeoJSON coordinates.
 
-
+We found the most top rated restaurants clustered in the downtown area.
