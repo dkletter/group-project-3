@@ -1,56 +1,36 @@
-import os
-import sqlite3
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-from flask import Flask, render_template, request, redirect
-from flask_sqlalchemy import SQLAlchemy
+import pymongo
+from flask import Flask, jsonify, render_template
+from pymongo import MongoClient
 
-# Database setup
-path = "data/portland.sqlite"
-engine = create_engine(f"sqlite:///{path}")
-
-# Reflect existing database ito a new model
-Base = automap_base()
-
-# Reflect the tables
-Base.prepare(engine, reflect=True)
-
-# Save reference to tables
-Restaurants = Base.classes.restaurants
-
+# Create instance of Flask app
 app = Flask(__name__)
 
+# Initialize pymongo to work with mongodb
+conn = 'mongodb://localhost:27017'
+client = pymongo.MongoClient(conn)
+
+# Define database and collection
+db = client.portland_db
+collection = db.restaurants
+
+# Route to render index
 @app.route("/")
-def index():
-    return render_template("index.html")
+def home():
+    with open("index.html") as f:
+        return f.read()
 
+# Route to render geojson
+@app.route("/json")
+def get_geojson():
+    # Convert all documents in the restaurant collection to a list
+    records = list(collection.find())
 
-@app.route("/", methods = ["GET"])
-def search():
-    try:
-        if request.method == "GET":
-            session = Session(engine)
-            results = session.query(Restaurants.name, Restaurants.categories).all()
-            session.close()
-            restaurant_list = []
-            for name, categories in results:
-                restaurant_dict = {}
-                restaurant_dict['name'] = name
-                restaurant_dict['categories'] = categories
-
-
-
-            name = request.args.get("name")
-            conn = sqlite3.connect(path)
-            cursor = conn.cursor()
-            query = "SELECT * from restaurants WHERE categories = vietnamese"
-            result = cursor.execute(query)
-            result = result.fetchall()[0][0]
-            return render_template("index.html", restaurants = result)
-    except:
-        return render_template("index.html", restaurants = "")
+    # Convert mongo id object to string
+    for record in records:
+        record["_id"] = str(record["_id"])
+    
+    # Return the json representation of the records
+    return jsonify(records)
 
 if __name__ == "__main__":
     app.run(debug=True)
