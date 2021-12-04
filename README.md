@@ -10,4 +10,4 @@ From there, we converted the data frame to GeoJSON format which would accommodat
 
 We chose a mongoDB over SQL because it was more flexible in handling GeoJSON coordinates.
 
-Figuring out how to search the categories for something specific, such as, "are there any kabob restaurants", was more challenging than we realized because instead of a clearly organized list, the categories appear randomly in a comma separated string.
+
