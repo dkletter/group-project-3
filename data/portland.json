@@ -1,7 +1,4 @@
 {
-  "type": "FeatureCollection",
-  "features": [
-    {
       "type": "Feature",
       "properties": {
         "name": "Flying Elephants at PDX",
@@ -126061,5 +126058,4 @@
         ]
       }
     }
-  ]
-}
+  
