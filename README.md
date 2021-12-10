@@ -27,7 +27,7 @@ Bars | 637
 Nightlife | 273
 **Grand Total** | **8,173**
 
-Important note: the Yelp data set allows for restaurants to be counted under multiple categories. For example, a bar can serve wine & spirits, burgers, and pizza, counting it in 3 subscategories. This is why the total number of categories is greater than the actual number of restaurants.
+Important note: the Yelp data set allows for restaurants to be counted under multiple categories. For example, a bar can serve beer, burgers, and pizza, counting it in 3 subscategories. This is why the total number of categories is greater than the actual number of restaurants.
 
 Overall, the top 10 subcategories are as follows:
 
