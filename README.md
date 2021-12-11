@@ -1,5 +1,16 @@
 # group-project-3
 
+### Team
+* Amber Dodson
+* Liang Lu
+* Natnael Tesfa
+* Daniel Kletter
+
+### Data Sources
+
+* [Yelp Academic Dataset: ](https://www.yelp.com/dataset)
+* [Yelp Category List: ](https://blog.yelp.com/businesses/yelp_category_list/)
+
 Our proposal is to look at restaurants in Portland, Oregon. We belive there's an interesting story to tell about nightlife and its variety of options. Our dashboard will have a searchable map of the most popular restaurants with clickable pins, a heat map, and supporting charts.
 
 Portland is a city with a population of 652,503 packed into 144.98 square miles, making it the second-most populous city in the Pacific Northwest.
