@@ -8,8 +8,10 @@
 
 ### Data Sources
 
-* [Yelp Academic Dataset: ](https://www.yelp.com/dataset)
-* [Yelp Category List: ](https://blog.yelp.com/businesses/yelp_category_list/)
+* Yelp Academic Dataset: [https://www.yelp.com/dataset](https://www.yelp.com/dataset)
+* Yelp Category List: [https://blog.yelp.com/businesses/yelp_category_list/](https://blog.yelp.com/businesses/yelp_category_list/)
+
+### Proposal
 
 Our proposal is to look at restaurants in Portland, Oregon. We belive there's an interesting story to tell about nightlife and its variety of options. Our dashboard will have a searchable map of the most popular restaurants with clickable pins, a heat map, and supporting charts.
 
@@ -22,6 +24,8 @@ Our ETL process was fairly straightforward. We removed any columns we felt we di
 From there, we converted the data frame to GeoJSON format which would accommodate our leaflet maps, before finally uploading to a mongoDB.
 
 We chose a mongoDB over PostgreSQL because it was more flexible in handling GeoJSON coordinates.
+
+### Findings
 
 Upon analysis of the data, we found some interesting statistics. There are 4,975 unique restaurants. In other words, counting any restaurant with more than 1 location as 1 business instead of several. The maximum number of reviews a restaurant received was 9,185 (Voodoo Doughnuts) while the average number of reviews is 128. The overall number of top rated restaurants, those with 4.5 stars or greater, is 1,019. The data set doesn't distinguish between good and bad reviews, but at first blush the results suggest people tend to leave more negative reviews more often.
 
